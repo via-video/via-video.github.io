@@ -245,7 +245,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <source src="static/video/merged.mov" type="video/mp4">
+        <source src="static/videos/merged.mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -260,13 +260,209 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Video editing stands as a cornerstone of digital media, from entertainment and education to professional communication. However, previous methods often overlook the necessity of comprehensively understanding both global and local contexts, leading to inaccurate and inconsistency edits in the spatiotemporal dimension, especially for long videos. In this paper, we introduce VIA, a unified spatiotemporal VIdeo Adaptation framework for global and local video editing, pushing the limits of consistently editing minute-long videos. First, to ensure local consistency within individual frames, the foundation of VIA is a novel test-time editing adaptation method, which adapts a pre-trained image editing model for improving consistency between potential editing directions and the text instruction, and adapts masked latent variables for precise local control. Furthermore, to maintain global consistency over the video sequence, we introduce spatiotemporal adaptation that adapts consistent attention variables in key frames and strategically applies them across the whole sequence to realize the editing effects. Extensive experiments demonstrate that, compared to baseline methods, our VIA approach produces edits that are more faithful to the source videos, more coherent in the spatiotemporal context, and more precise in local control. More importantly, we show that VIA can achieve consistent long video editing in minutes, unlocking the potentials for advanced video editing tasks over long video sequences. 
+            Effective editing of personal content holds a pivotal role in enabling individuals to express their creativity, weaving captivating narratives within their visual stories, and elevate the overall quality and impact of their visual content. 
+Therefore, in this work, we introduce <b>SwapAnything</b>, a novel framework that can swap any objects in an image with personalized concepts given by the reference, while keeping the context unchanged.
+Compared with existing methods for personalized subject swapping, <b>SwapAnything</b> has three unique advantages: (1) precise control of arbitrary objects and parts rather than the main subject, (2) more faithful preservation of context pixels, (3) better adaptation of the personalized concept to the image.
+First, we propose targeted variable swapping to apply region control over latent feature maps and swap masked variables for faithful context preservation and initial semantic concept swapping. Then, we introduce appearance adaptation, to seamlessly adapt the semantic concept into the original image in terms of target location, shape, style, and content during the image generation process.
+Extensive results on both human and automatic evaluation demonstrate significant improvements of our approach over baseline methods on personalized swapping. 
+Furthermore, <b>SwapAnything</b> shows its precise and faithful swapping abilities across single object, multiple objects, partial object, and cross-domain swapping tasks. 
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> A single frame for different tasks. </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">
+            <div class="content has-text-justified">
+              <ul>
+                <li> Targetted swapping to keep context pixel perfectly unchaged and to transfer important features. </li>
+                <li> Sophisticated appearance adaptation process to adapt the concept image into the source object.</li>
+                <li>The framework applied to single object swapping, multi-object swapping, partial-object swapping, cross-domain swapping, text-based swapping, and tasks beyond swapping such as object insersion.</li>
+              </ul>
+            </div>        
+            <img id="model" width="100%" src="./static/images/pipeline.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b>Figure 2. Overview of SwapAnything on swapping a object from a source image ($I_{src}$) into a personalized concept
+                 ($<{*}>$) to get the target image ($I_{target}$).
+                The personalized concept is first converted into textual space to be treated as concept appearance.
+                Meanwhile, the source image is first inverted into initial noise to obtain U-Net variables (including latent feature, attention map, and attention output). 
+                Targeted variable swapping preserves the context pixels in the source image. The appearance adaptation process then utilizes these informative variables to 
+                integrate the concept into the target image.</b></p>
+            </h3>   
+
+
+        </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Single Object Swapping Result </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="100%" src="./static/images/more-single.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b>Figure 3. Comparison on single-object swapping with baselines in their original components. SS means Object Swapping,
+                 BP means Background Preservation,
+                 and OQ means Overall Quality. SG means Object Gesture. Please zoom in for a clear visual result. </b></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Multi-object Swapping Result </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="100%" src="./static/images/multi-objects.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Partial-object Swapping </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="100%" src="./static/images/part-subject-swap.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b></b></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Cross-domain Swapping </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="100%" src="./static/images/style-result.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b></b></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Text-based Swapping </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="100%" src="./static/images/text-based.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b></b></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Object Insertion </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="100%" src="./static/images/insert.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b></b></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Comparison with DALL-E in ChatGPT </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="100%" src="./static/images/dalle-comparison.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b>Unlike SwapAnything, DALL-E in ChatGPT can only do text-based (not personalized) editing,
+                 and it can not edit real image. In other words, user can only edit
+                 image created by DALL-E itself in previous conversation. We conduct comparison by generating a source image by DALL-E itself.</b></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Human Evaluation </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">  
+            <img id="model" width="100%" src="./static/images/human-eval.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b>
+                We show the human preference between results generated by our method and the baseline methods. SS means Object Swapping, BP means Background Preservation, and OQ means Overall Quality. SG means Object Gesture. For the baseline methods, 
+                PS means Photoswap; MC means MasaCtrl; BP means BlipDiffusion; DE means DreamEdit; CP means CopyPaste.</b></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
 
 
 
